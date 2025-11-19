@@ -1,8 +1,8 @@
 const path = require('path')
 module.exports = {
   version: "3.7",
-  title: "Kokoro-FastAPI.git",
-  description: "",
+  title: "Kokoro-FastAPI",
+  description: "A FastAPI wrapper for KokoroTTS. Integrates with Open-WebUI and other API-driven AI applications.",
   icon: "icon.png",
   menu: async (kernel, info) => {
     let installed = info.exists("app/env")
@@ -33,6 +33,10 @@ module.exports = {
             icon: 'fa-solid fa-terminal',
             text: "Terminal",
             href: "start.js",
+          }, {
+            icon: 'fa-solid fa-book',
+            text: "API-Docs",
+            href: local.url.replace(/\/web\/?$/,'') + '/docs',
           }]
         } else {
           return [{
@@ -86,7 +90,6 @@ module.exports = {
           text: "<div><strong>Reset</strong><div>Revert to pre-install state</div></div>",
           href: "reset.js",
           confirm: "Are you sure you wish to reset the app?"
-
         }]
       }
     } else {
